@@ -1,15 +1,5 @@
 import { AnalysisType } from "@/types";
-import {
-  Brain,
-  Hash,
-  List,
-  MessageCircle,
-  MessageSquare,
-  Shield,
-  Sparkles,
-  Upload,
-  Users,
-} from "lucide-react";
+import {Brain,Hash,List,MessageCircle,MessageSquare,Shield,Sparkles,Upload,Users,} from "lucide-react";
 
 export const features = [
   {

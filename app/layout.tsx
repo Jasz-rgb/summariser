@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import Header from "@/components/common/header";
-// import Footer from "@/components/common/footer";
+import Footer from "@/components/common/footer";
 // import { Toaster } from "sonner";
 // import { syncUserToDatabase } from "@/lib/sync-user";
 
@@ -27,7 +27,7 @@ export default async function RootLayout({
           <div className="min-h-screen flex flex-col">
             <Header />
             <main className="flex-1">{children}</main>
-            {/* <Footer /> */}
+            <Footer />
             {/* <Toaster position="top-right" richColors /> */}
           </div>
         </body>
