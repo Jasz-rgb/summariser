@@ -25,7 +25,7 @@ export default async function RootLayout({
       <html lang="en" suppressHydrationWarning>
         <body className={inter.className}>
           <div className="min-h-screen flex flex-col">
-            {/* <Header /> */}
+            <Header />
             <main className="flex-1">{children}</main>
             {/* <Footer /> */}
             {/* <Toaster position="top-right" richColors /> */}
