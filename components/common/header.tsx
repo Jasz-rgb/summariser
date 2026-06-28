@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import {Show,UserButton,useUser,useOrganization,} from "@clerk/nextjs";
+import { SignedIn,SignedOut,UserButton,useUser,useOrganization,} from "@clerk/nextjs";
 import {Menu,Home,FileText,Users,Brain,LogIn,UserPlus,Building,} from "lucide-react";
 import { usePathname } from "next/navigation";
 import { Button } from "../ui/button";
@@ -54,22 +54,27 @@ export default function Header() {
           })}
         </nav>
         {/* <Auth Section> */}
-        <Show when="signed-out">
-            <div className="hidden md:flex items-center gap-2">
-              <Link href="/sign-in">
-                <Button variant="ghost" size="sm">
-                  <LogIn className="h-4 w-4 mr-2" />
-                  Sign In
-                </Button>
-              </Link>
-              <Link href="/sign-up">
-                <Button size="sm">
-                  <UserPlus className="h-4 w-4 mr-2" />
-                  Sign Up
-                </Button>
-              </Link>
-            </div>
-          </Show>
+        <SignedOut>
+          <div className="hidden md:flex items-center gap-2">
+            <Link href="/sign-in">
+              <Button variant="ghost" size="sm">
+                <LogIn className="h-4 w-4 mr-2" />
+                Sign In
+              </Button>
+            </Link>
+
+            <Link href="/sign-up">
+              <Button size="sm">
+                <UserPlus className="h-4 w-4 mr-2" />
+                Sign Up
+              </Button>
+            </Link>
+          </div>
+        </SignedOut>
+
+        <SignedIn>
+          <UserButton afterSignOutUrl="/" />
+        </SignedIn>
       </div>
     </header>
   );
