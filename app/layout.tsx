@@ -4,7 +4,7 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import Header from "@/components/common/header";
 import Footer from "@/components/common/footer";
-// import { Toaster } from "sonner";
+import { Toaster } from "sonner";
 // import { syncUserToDatabase } from "@/lib/sync-user";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -28,7 +28,7 @@ export default async function RootLayout({
             <Header />
             <main className="flex-1">{children}</main>
             <Footer />
-            {/* <Toaster position="top-right" richColors /> */}
+            <Toaster position="top-right" richColors />
           </div>
         </body>
       </html>
