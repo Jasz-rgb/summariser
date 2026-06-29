@@ -33,8 +33,8 @@ export const steps = [
 
 export const allowedTypes = [
   "text/plain",
-  "application/pdf",
-  "application/msword",
+  // "application/pdf",
+  // "application/msword",
   "text/markdown",
 ];
 

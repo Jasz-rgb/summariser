@@ -13,13 +13,11 @@ export default function Header() {
   const { organization } = useOrganization();
   const [isOpen, setIsOpen] = useState(false);
 
-  // Get dynamic navigation based on whether user is in an organization
   const getNavItems = () => {
     const baseItems = [
       { href: "/", label: "Home", icon: <Home className="h-4 w-4" /> },
     ];
 
-    // If user is in an organization
     if (organization) {
       return [
         ...baseItems,
@@ -84,13 +82,13 @@ export default function Header() {
           })}
         </nav>
 
-        {/* Auth Section */}
+        {/* auth section */}
         <div className="flex items-center gap-4">
           <SignedIn>
             <div className="hidden md:flex items-center gap-2">
               <span className="text-sm text-gray-600">
                 {organization
-                  ? `In: ${organization.name}`
+                  ? `In: ${organization.name}`    //if in
                   : user?.firstName || user?.username}
               </span>
               <UserButton />
@@ -114,8 +112,7 @@ export default function Header() {
             </div>
           </SignedOut>
 
-          {/* We are building this during video */}
-          {/* Mobile Menu */}
+          {/* mobile menu */}
           <div className="md:hidden">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
@@ -125,7 +122,7 @@ export default function Header() {
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
                 <div className="flex flex-col gap-4 mt-8">
-                  {/* Mobile Navigation */}
+                  {/* mobile Navigation */}
                   {navItems.map((item) => (
                     <Link
                       key={item.href}
@@ -142,7 +139,7 @@ export default function Header() {
                     </Link>
                   ))}
 
-                  {/* Mobile Auth */}
+                  {/* mobile Auth */}
                   <div className="border-t pt-4 mt-4">
                     <SignedIn>
                       <div className="flex flex-col gap-2">
