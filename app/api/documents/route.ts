@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { uploadToBlob } from "@/lib/blob";
 import { auth } from "@clerk/nextjs/server";
 import { prisma } from "@/lib/prisma";
+import { extractText } from "@/lib/extract-text";
 
 export async function POST(request: Request) {
   try {
@@ -90,9 +91,24 @@ export async function POST(request: Request) {
       fileSize = file.size;
       fileType = file.type;
 
-      if (!extractedContent && file.type.includes("text")) {  //If no content provided but we have a text file, extract text
-        extractedContent = await file.text();
+      if (!extractedContent) {
+        try {
+          extractedContent = await extractText(file);
+
+          console.log("Extracted length:", extractedContent.length);
+          console.log(
+            extractedContent
+              ? extractedContent.substring(0, 500)
+              : "No text extracted"
+          );
+        } catch (err) {
+          console.error("Text extraction failed:", err);
+          extractedContent = "";
+        }
       }
+      console.log("Extracted content length:", extractedContent?.length);
+      console.log("First 300 chars:");
+      console.log(extractedContent?.slice(0, 300));
 
       console.log("✅ File uploaded:", { fileUrl, fileSize, fileType });
     }

@@ -33,8 +33,9 @@ export const steps = [
 
 export const allowedTypes = [
   "text/plain",
-  // "application/pdf",
-  // "application/msword",
+  "application/pdf",
+  "application/msword",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
   "text/markdown",
 ];
 
