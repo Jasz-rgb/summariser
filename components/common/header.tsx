@@ -64,9 +64,11 @@ export default function Header() {
         <nav className="hidden md:flex items-center gap-1">
           {navItems.map((item) => {
             const isActive =
-              pathname === item.href ||
-              (item.href !== "/" && pathname?.startsWith(item.href));
-
+              item.label === "Organization Dashboard"
+                ? pathname === item.href
+                : item.label === "Org Documents"
+                ? pathname.startsWith(item.href)
+                : pathname === item.href;
             return (
               <Link key={item.href} href={item.href}>
                 <Button
