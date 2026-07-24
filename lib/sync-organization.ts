@@ -1,6 +1,5 @@
 import { auth, clerkClient } from "@clerk/nextjs/server";
 import { prisma } from "./prisma";
-import { generateJoinCode } from "./join-code";
 
 export async function syncOrganizationToDatabase() {
   const { orgId } = await auth();
@@ -31,7 +30,6 @@ export async function syncOrganizationToDatabase() {
       clerkOrgId: org.id,
       name: org.name,
       slug,
-      joinCode: generateJoinCode(),
     },
   });
 }
