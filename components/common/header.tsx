@@ -57,7 +57,7 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 font-bold text-xl">
           <Brain className="h-6 w-6 text-blue-600" />
-          DocuAI
+          DocDocGo
         </Link>
 
         {/* Desktop Navigation */}

@@ -5,47 +5,80 @@ import { FaGithub, FaXTwitter } from "react-icons/fa6";
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
+  // const footerLinks = {
+  //   Product: [
+  //     { label: "Features", href: "/#features" },
+  //     { label: "Pricing", href: "/pricing" },
+  //     { label: "API", href: "/api-docs" },
+  //   ],
+  //   Company: [
+  //     { label: "About", href: "/about" },
+  //     { label: "Blog", href: "/blog" },
+  //     { label: "Careers", href: "/careers" },
+  //   ],
+  //   Legal: [
+  //     { label: "Privacy", href: "/privacy" },
+  //     { label: "Terms", href: "/terms" },
+  //     { label: "Security", href: "/security" },
+  //   ],
+  //   Support: [
+  //     { label: "Help Center", href: "/help" },
+  //     { label: "Contact Us", href: "/contact" },
+  //     { label: "Status", href: "/status" },
+  //   ],
+  // };
+
+  // const socialLinks = [
+  //   {
+  //     icon: <FaGithub className="h-5 w-5" />,
+  //     href: "https://github.com",
+  //     label: "GitHub",
+  //   },
+  //   {
+  //     icon: <FaXTwitter className="h-5 w-5" />,
+  //     href: "https://twitter.com",
+  //     label: "Twitter",
+  //   },
+  //   {
+  //     icon: <Mail className="h-5 w-5" />,
+  //     href: "mailto:support@docdocgo.com",
+  //     label: "Email",
+  //   },
+  // ];
+
   const footerLinks = {
     Product: [
       { label: "Features", href: "/#features" },
       { label: "Pricing", href: "/pricing" },
-      { label: "API", href: "/api-docs" },
     ],
-    Company: [
-      { label: "About", href: "/about" },
-      { label: "Blog", href: "/blog" },
-      { label: "Careers", href: "/careers" },
-    ],
-    Legal: [
-      { label: "Privacy", href: "/privacy" },
-      { label: "Terms", href: "/terms" },
-      { label: "Security", href: "/security" },
-    ],
-    Support: [
-      { label: "Help Center", href: "/help" },
-      { label: "Contact Us", href: "/contact" },
-      { label: "Status", href: "/status" },
+    Resources: [
+      {
+        label: "GitHub",
+        href: "https://github.com/Jasz-rgb/summariser",
+      },
+      {
+        label: "Documentation",
+        href: "https://github.com/Jasz-rgb/summariser#readme",
+      },
     ],
   };
-
   const socialLinks = [
     {
       icon: <FaGithub className="h-5 w-5" />,
-      href: "https://github.com",
+      href: "https://github.com/Jasz-rgb",
       label: "GitHub",
     },
     {
       icon: <FaXTwitter className="h-5 w-5" />,
-      href: "https://twitter.com",
+      href: "https://twitter.com/yourhandle",
       label: "Twitter",
     },
     {
       icon: <Mail className="h-5 w-5" />,
-      href: "mailto:support@docuai.com",
+      href: "mailto:your@email.com",
       label: "Email",
     },
   ];
-
   return (
     <footer className="border-t bg-gray-50">
       <div className="container mx-auto px-4 py-12">
@@ -54,7 +87,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
               <Brain className="h-8 w-8 text-blue-600" />
-              <span className="text-xl font-bold">DocuAI</span>
+              <span className="text-xl font-bold">DocDocGo</span>
             </div>
             <p className="text-gray-600 mb-6 max-w-md">
               AI-powered document analysis for teams. Upload, analyze, and
@@ -99,7 +132,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="text-gray-600 mb-4 md:mb-0">
-            © {currentYear} DocuAI. All rights reserved.
+            © {currentYear} DocDocGo. All rights reserved.
           </div>
           <div className="flex gap-6 text-sm text-gray-600">
             <Link href="/privacy" className="hover:text-gray-900">

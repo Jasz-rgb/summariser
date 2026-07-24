@@ -86,7 +86,7 @@ export default function Home() {
             Ready to analyze your documents?
           </h2>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-            Join thousands of teams using DocuAI to work smarter with their
+            Join thousands of teams using DocDocGo to work smarter with their
             documents.
           </p>
           <Link href="/sign-up">

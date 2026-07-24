@@ -3,6 +3,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { prisma } from "@/lib/prisma";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
+import { syncOrganizationToDatabase } from "@/lib/sync-organization";
+import { syncMembershipToDatabase } from "@/lib/sync-membership";
 
 interface OrgLayoutProps {
   children: React.ReactNode;
@@ -12,7 +14,8 @@ interface OrgLayoutProps {
 export default async function OrgLayout({ children, params }: OrgLayoutProps) {
   const { orgSlug } = await params;
   const { userId } = await auth();
-
+  await syncOrganizationToDatabase();
+  await syncMembershipToDatabase();
   if (!userId) {
     redirect("/sign-in");
   }
@@ -21,11 +24,16 @@ export default async function OrgLayout({ children, params }: OrgLayoutProps) {
     console.error("orgSlug is undefined");
     redirect("/dashboard");
   }
+  console.log("====== ORG DEBUG ======");
+  console.log("URL slug:", orgSlug);
 
+  const { orgId } = await auth();
+  console.log("Clerk orgId:", orgId);
+  console.log("Clerk userId:", userId);
   const organization = await prisma.organization.findUnique({
     where: { slug: orgSlug },
   });
-
+  console.log("DB organization:", organization);
   if (!organization) {
     redirect("/select-org");
   }
@@ -36,7 +44,8 @@ export default async function OrgLayout({ children, params }: OrgLayoutProps) {
       user: { clerkUserId: userId },
     },
   });
-
+  console.log("Membership:", membership);
+  console.log("=======================");
   if (!membership) {
     redirect("/select-org");
   }
